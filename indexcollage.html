@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro Cultural COLLAGE</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <script>
+    window.addEventListener('scroll', function() {
+        const logo = document.querySelector('.logo-screen img');
+        const logoText = document.querySelector('.logo-text');
+        const playerBlock = document.querySelector('.player-container');
+        const banner = document.querySelector('.main-banner');
+        const about = document.querySelector('.about-us');
+        let scrollY = window.scrollY;
+        // Logo
+        let maxScrollLogo = window.innerHeight * 0.5;
+        let opacityLogo = 1 - (scrollY / maxScrollLogo);
+        if (opacityLogo < 0) opacityLogo = 0;
+        if (logo) logo.style.opacity = opacityLogo;
+        // Texto logo
+        let maxScrollText = window.innerHeight * 1.0;
+        let opacityText = 1 - (scrollY / maxScrollText);
+        if (opacityText < 0) opacityText = 0;
+        if (logoText) logoText.style.opacity = opacityText;
+        // video y frases
+        let startBanner = window.innerHeight * 1.2;
+        let endBanner = window.innerHeight * 2.0;
+        let opacityBanner = (scrollY - startBanner) / (endBanner - startBanner);
+        if (opacityBanner > 1) opacityBanner = 1;
+        if (opacityBanner < 0) opacityBanner = 0;
+        if (banner) banner.style.opacity = opacityBanner;
+        // Sobre Nosotros
+        let startAbout = window.innerHeight * 1.8;
+        let endAbout = window.innerHeight * 2.8;
+        let opacityAbout = (scrollY - startAbout) / (endAbout - startAbout);
+        if (opacityAbout > 1) opacityAbout = 1;
+        if (opacityAbout < 0) opacityAbout = 0;
+        if (about) about.style.opacity = opacityAbout;
+    });
+    // Rotación de imágenes y video
+    const rotItems = document.querySelectorAll('.rotating-images img, .rotating-images video');
+    let rotCurrent = 0;
+    setInterval(() => {
+        rotItems.forEach((el, i) => el.classList.remove('active'));
+        rotItems[rotCurrent].classList.add('active');
+        if (rotItems[rotCurrent].tagName === 'VIDEO') {
+            rotItems[rotCurrent].play();
+        } else {
+            rotItems.forEach(el => { if (el.tagName === 'VIDEO') el.pause(); });
+        }
+        rotCurrent = (rotCurrent + 1) % rotItems.length;
+    }, 2000);
+    // Rotación de imágenes
+    const rotImgs = document.querySelectorAll('.rotating-images img');
+    let rotIdx = 0;
+    setInterval(() => {
+        rotImgs.forEach((img, i) => img.classList.remove('active'));
+        rotImgs[rotIdx].classList.add('active');
+        rotIdx = (rotIdx + 1) % rotImgs.length;
+    }, 2000);
+    </script>
+</head>
+<body>
+
+    <!-- Logo de bienvenida pantalla completa -->
+    <div class="logo-screen">
+        <img src="images/logo1.png" alt="Logo Centro Cultural COLLAGE">
+        <div class="logo-text">collagecultural.com</div>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="main-content">
+
+        <!-- Reproductor de video -->
+        <section class="player-container">
+            <h2>RADIO - STREAMING</h2>
+            <h3>EN VIVO</h3>
+            <br>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/e76DpWphneg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="max-width:100%;border-radius:8px;"></iframe>
+        </section>
+        <!-- Nueva sección Actividades -->
+        <section class="activities-section">
+            <h2>Actividades:</h2>
+            <img src="images/img1.jpge.jpeg" alt="Actividades" class="activities-img">
+        </section>
+
+        <!-- Main Banner -->
+        <section class="main-banner">
+            <div class="banner-content">
+                <h2>Centro Cultural COLLAGE</h2>
+                <p class="subtitle">Cultura al pié del cerro</p>
+                <button>Más Información</button>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-us">
+            <h2>Sobre Nosotros</h2>
+<p>
+    <strong>Centro Cultural COLLAGE</strong> es un espacio independiente y cooperativo con base en <strong>Comodoro Rivadavia, Chubut</strong>, que late fuertemente en el corazón de la <strong>Patagonia... y hacia el mundo</strong>.<br><br>
+
+    Somos una <strong>cooperativa cultural, educativa y autosustentable</strong>, que promueve el arte, la expresión colectiva y el desarrollo social desde la diversidad.<br><br>
+
+    Ofrecemos una amplia variedad de <strong>talleres</strong> y actividades: acrobacias, danzas, arte visual, música, teatro y más. También organizamos <strong>eventos culturales</strong>, <strong>festivales</strong>, <strong>encuentros comunitarios</strong>, <strong>capacitaciones</strong> y <strong>shows en vivo</strong> que celebran la creación colectiva y el intercambio.<br><br>
+
+    <strong>COLLAGE</strong> es comunidad. Es movimiento. Es cultura <strong>al pie del cerro</strong>.
+</p>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <img src="images/logo1.png" alt="Logo Centro Cultural COLLAGE" class="footer-logo">
+            <p>&copy; 2025 Centro Cultural COLLAGE. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+</body>
+</html>

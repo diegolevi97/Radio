@@ -1,0 +1,240 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background: url('images/fondo.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+    text-align: center;
+}
+
+h1, h2 {
+    color: #2d3e50;
+}
+
+/* Header */
+header {
+    background-color: #2d3e50;
+    color: #fff;
+    padding: 2rem 0;
+}
+
+header .logo h1 {
+    font-size: 5rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* Main Banner */
+.main-banner {
+    background-image: url('path/to/your/banner-image.jpg'); /* Cambiar por tu imagen real */
+    background-size: cover;
+    background-position: center;
+    padding: 100px 0;
+    color: #fff;
+}
+
+.main-banner h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: #2d3e50;
+}
+
+.main-banner .subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #2d3e50;
+}
+
+.main-banner button {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.main-banner button:hover {
+    background-color: #c0392b;
+}
+
+/* About Us Section */
+.about-us {
+    padding: 2rem;
+    background-color: #fff;
+}
+
+.about-us h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Activities Section */
+.activities-section {
+    margin: 40px auto 20px auto;
+    text-align: center;
+}
+
+.activities-section h2 {
+    font-size: 2.2rem;
+    color: #2d3e50;
+    margin-bottom: 18px;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 700;
+}
+
+.activities-img {
+    max-width: 420px;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+    margin: 0 auto;
+    display: block;
+}
+
+/* Footer */
+footer {
+    background-color: #2d3e50;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.footer-logo {
+    width: 60px;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px auto;
+}
+
+/* Imagen del logo */
+.logo-screen {
+    background: transparent !important;
+    box-shadow: none;
+    border: none;
+    outline: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh; /* Centra verticalmente en la pantalla */
+    z-index: 10;
+    position: relative;
+}
+
+.logo-screen img {
+    width: 400px; /* Agrandamos la imagen */
+    height: auto;
+    max-width: none;
+    background: transparent !important;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    display: block;
+    margin: 40px auto 0 auto; /* Más arriba */
+}
+
+.rotating-images {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.rotating-images img,
+.rotating-images video {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.7s;
+    max-height: 80px;
+    width: auto;
+    border-radius: 8px;
+}
+
+.rotating-images img.active,
+.rotating-images video.active {
+    opacity: 1;
+}
+
+.main-content {
+    margin-top: 100px; /* Margen pequeño para separar el reproductor del logo */
+}
+
+/* Reproductor de video */
+.player-container {
+    padding: 2rem;
+    background-color: #ffffff;
+}
+
+video {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+/* Logo Text */
+.logo-text {
+    font-size: 3.5rem;
+    color: #111;
+    margin-top: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-family: 'Oswald', Arial, sans-serif;
+    transition: color 0.7s;
+    animation: colorChange 12s linear infinite, moveText 2.5s ease-in-out infinite;
+    text-shadow: 1px 1px 0 #111, 1px -1px 0 #111, -1px 1px 0 #111, -1px -1px 0 #111; /* Borde más chico */
+}
+
+@keyframes colorChange {
+    0% { color: #00bfff; }
+    33% { color: #d4ff00; }
+    66% { color: #d6aaff; }
+    100% { color: #00bfff; }
+}
+
+@keyframes moveText {
+    0%   { transform: translateY(0); }
+    20%  { transform: translateY(-4px); }
+    40%  { transform: translateY(0); }
+    60%  { transform: translateY(4px); }
+    80%  { transform: translateY(0); }
+    100% { transform: translateY(0); }
+}
+
+/* Logo Subtitle */
+.logo-subtitle {
+    font-size: 1.6rem;
+    color: #fff;
+    margin-top: -12px; /* Margen negativo para subir el texto blanco aún más */
+    margin-bottom: 10px; /* Menos espacio antes del .com */
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 500;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+
+/* Transitions */
+.player-container, .main-banner, .about-us {
+    transition: opacity 0.7s;
+    opacity: 1;
+}
